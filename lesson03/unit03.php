@@ -54,5 +54,19 @@ echo "truoc khi truyen vao ham: {$test}";
 echo "<br/>";
 thamTri($test);
 echo "sau khi truyen vao ham: la: {$test}";
+echo "<br/>";
+
+//tu khoa static trong function
+function demoKeywordStatic(){
+    static $count = 0;
+    $count++;
+    echo "value{$count}";
+    echo "<br/>";
+}
+demoKeywordStatic();//1
+demoKeywordStatic();//2
+demoKeywordStatic();//3
+//tu khoa static giup luu lai gia tri cua bien trong ham sau moi lan goi ham ra su dung
+
 
 
