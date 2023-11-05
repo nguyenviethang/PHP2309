@@ -19,6 +19,17 @@ function loginUser(){
                 //cho vao trang dashboard
                 //luu thong tin dang nhap vao session
                 $_SESSION['user'] = $username;
+
+                // thiet lap cookie
+                $remenber = trim($_POST['remember'] ?? null);
+                if(strtolower($remenber) === 'on'){
+                    //cotich
+                    setcookie('LoginApp',$username,time()+3600*24*30*6,'/','',0);
+                }else{
+                    //khong tich
+                    setcookie('LoginApp',$username,time()+3600*24,'/','',0);
+                }
+
                 header('Location:../dashboard.php');
             }else{
                 //dang nhap linh tinh ==> quay ve trang login

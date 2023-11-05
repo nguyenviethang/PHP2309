@@ -4,9 +4,15 @@ if(session_status() == PHP_SESSION_NONE){
 
 }
 function checkUserLogin() {
-    if(empty($_SESSION['user'])){
+    if(empty($_SESSION['user'] || empty($_COOKIE['LoginApp']))){
         return false;
     }
     return true;
 
+}
+function checkLogin() {
+    if(!empty($_SESSION['user'])){
+        return true;
+    }
+    return false;
 }
